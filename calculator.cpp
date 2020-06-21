@@ -51,6 +51,15 @@ double Calculator::primary()
                 return d;
         }
 
+        case '[': {
+                double d = expression();
+                t = get();
+
+                if (t.kind != ']')
+                        throw std::runtime_error("Missing ]");
+                return d;
+        }
+
         case '-':
                 return -primary();
 
